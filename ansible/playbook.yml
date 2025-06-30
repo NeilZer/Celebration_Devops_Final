@@ -231,7 +231,7 @@
       shell: curl ident.me
       register: ip_address
 
-    - debug:
-        msg:
-          - "Don't forget to change the HOST secret in GitHub to {{ ip_address.stdout }}"
-          - "your app is ready to go at http://{{ ip_address.stdout }}"
+    - debug: 
+       msg:
+        - "Don't forget to change the HOST secret ing GitHub to {{ ip_address.stdout }}"
+        - "your app is ready to go at http://{{ ip_address.stdout }}"   
