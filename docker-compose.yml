@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+  web:
+    container_name: celebration-devops
+    environment:
+      - NODE_ENV=prod
+      - MONGO_URL=mongodb://mongo:27017/celebration
+    image: Reutp111/celebration-devops:latest
+    ports:
+      - "80:3001"
+    depends_on:
+      - mongo
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
+
