@@ -40,6 +40,7 @@ function toggleCart() {
   if (el) el.style.display = (el.style.display === "block" ? "none" : "block");
 }
 
+// התיקון המרכזי הוא כאן! ארבעה פרמטרים
 function addToCart(name, image, quantity, price) {
   const item = cartItems.find(i => i.name === name);
   if (item) {
@@ -50,7 +51,6 @@ function addToCart(name, image, quantity, price) {
   }
   updateCart();
 }
-
 
 function changeQuantity(name, delta) {
   const item = cartItems.find(i => i.name === name);
@@ -64,6 +64,11 @@ function changeQuantity(name, delta) {
 
 function removeFromCart(name) {
   cartItems = cartItems.filter(i => i.name !== name);
+  updateCart();
+}
+
+function clearCart() {
+  cartItems = [];
   updateCart();
 }
 
@@ -84,7 +89,7 @@ function updateTotalPrice() {
   const el = document.getElementById("total-price");
   if (el) {
     const totalSum = cartItems.reduce((sum, i) => sum + i.total, 0);
-    el.textContent = `סכום כולל: ${totalSum} ש''ח`;
+    el.textContent = `סכום כולל: ${totalSum} ש"ח`;
   }
 }
 
@@ -96,17 +101,22 @@ function updateCartDropdown() {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${item.name}</td>
-      <td>${item.price} ש''ח</td>
+      <td>${item.price} ש"ח</td>
       <td>
         <button onclick="changeQuantity('${item.name}', -1)">-</button>
         <span>${item.quantity}</span>
         <button onclick="changeQuantity('${item.name}', 1)">+</button>
       </td>
-      <td>${item.total} ש''ח</td>
+      <td>${item.total} ש"ח</td>
       <td><button class="remove-button" onclick="removeFromCart('${item.name}')">הסרה</button></td>`;
     tbody.appendChild(tr);
   });
 }
+
+// להריץ כשנטען העמוד (למשל אם יש לוגין אוטומטי)
+window.onload = function() {
+  updateCart();
+};
 
 const loginForm = document.getElementById("login-form");
 if (loginForm) {
