@@ -26,3 +26,4 @@
 ### 4. תהליך CI/CD עם GitHub Actions
 הקמנו pipeline שמריץ בדיקות, בונה את הדוקר, ומעלה אותו אוטומטית ל־DockerHub.
 
+# Celebration_Devops_Final
