@@ -81,7 +81,7 @@ jobs:
           password: ${{ secrets.docker_token }}
 
       - name: Build Docker Image
-        run: docker build . --tag gold1998/Celebration_Devops_Final:latest
+        run: docker build . --tag gold1998/celebration_devops_final:latest
 
       - name: Push Docker Image
         run: docker push gold1998/Celebration_Devops_Final:latest
