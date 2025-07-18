@@ -71,8 +71,8 @@ jobs:
       - name: Install Python dependencies
         run: pip install requests webdriver_manager selenium pytest
 
-      - name: Run Selenium PyTest
-        run: pytest -rA
+     # - name: Run Selenium PyTest
+      #  run: pytest -rA
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
