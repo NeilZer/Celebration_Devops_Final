@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     container_name: celebration_devops_final
-    image: gold1998/celebration_devops_final:latest
+    image: gold1998/celebration-devops:latest
     environment:
       - NODE_ENV=production
       - MONGO_URL=mongodb://mongo:27017/celebration
