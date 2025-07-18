@@ -227,20 +227,20 @@
     - name: Copy private SSH key to remote host
       copy:
         src: /home/reut/.ssh/id_rsa
-        dest: /root/.ssh/id_rsa
-        owner: root
-        group: root
+        dest: /home/ubuntu/.ssh/id_rsa
+        owner: ubuntu
+        group: ubuntu
         mode: '0600'
-
 
     - name: Clone the app repo
       git:
         repo: git@github.com:NeilZer/Celebration_Devops_Final.git
         dest: /home/ubuntu/Celebration_Devops_Final
         version: main
-        key_file: ~/.ssh/id_rsa
+        key_file: /home/ubuntu/.ssh/id_rsa
         accept_hostkey: yes
         force: yes
+
 
 
     - name: build docker image and push to DockerHub
