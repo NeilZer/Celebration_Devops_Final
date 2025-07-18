@@ -271,7 +271,7 @@
         chdir: /home/ubuntu/Celebration_Devops_Final
 
     - name: Seed MongoDB with default products
-      shell: docker exec celebration-devops node models/seedProducts.js
+      shell: docker exec celebration_devops_final node models/seedProducts.js
       args:
         chdir: /home/ubuntu/Celebration_Devops_Final
         
