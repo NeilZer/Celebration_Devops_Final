@@ -67,7 +67,7 @@ jobs:
       - name: Install Python requirements
         run: pip install selenium pytest webdriver-manager
 
-     # - name: Run Selenium tests
+     #- name: Run Selenium tests
       #  run: pytest qa/test_selenium.py
 
   build-and-push:
