@@ -83,10 +83,10 @@ jobs:
           password: ${{ secrets.docker_token }}
 
       - name: Build Docker Image
-        run: docker build . --tag reutp111/celebration-devops:latest
+        run: docker build . --tag gold1998/Celebration_Devops_Final:latest
 
       - name: Push Docker Image
-        run: docker push reutp111/celebration-devops:latest
+        run: docker push gold1998/Celebration_Devops_Final:latest
 
   deploy:
     needs: build-and-push
@@ -99,7 +99,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /home/ubuntu/celebration-devops-main
+            cd \Users\Neil\Desktop\celebration-devops
             sudo docker compose down || true
-            sudo docker pull reutp111/celebration-devops:latest
+            sudo docker pull gold1998/Celebration_Devops_Final:latest
             sudo docker compose up -d --build
