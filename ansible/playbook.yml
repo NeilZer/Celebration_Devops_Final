@@ -226,7 +226,7 @@
 
     - name: Copy private SSH key to remote host
       copy:
-        src: ~/home/ubuntu/.ssh/id_rsa
+        src: /home/ubuntu/.ssh/id_rsa
         dest: /root/.ssh/id_rsa
         owner: root
         group: root
