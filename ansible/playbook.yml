@@ -235,7 +235,7 @@
     - name: Clone the app repo
       git:
         repo: git@github.com:NeilZer/Celebration_Devops_Final.git
-        dest: /home/ubuntu/celebration-devops
+        dest: /home/reut/Downloads/Celebration_Devops_Final
         version: main
         key_file: ~/.ssh/id_rsa
         accept_hostkey: yes
@@ -245,7 +245,7 @@
     - name: build docker image and push to DockerHub
       shell: "{{ item }}"
       args:
-        chdir: /home/ubuntu/celebration-devops-main
+        chdir: /home/reut/Downloads/Celebration_Devops_Final
       with_items:
         - docker login -u {{ docker_user }} -p {{ docker_token }}
         - docker build . --tag {{ docker_user }}/celebration-devops:latest
@@ -254,7 +254,7 @@
     - name: start docker app (both mongo and node)
       shell: docker compose up -d
       args:
-        chdir: /home/ubuntu/celebration-devops-main
+        chdir: /home/reut/Downloads/Celebration_Devops_Final
 
     - name: Wait for MongoDB to be ready in the container
       shell: |
