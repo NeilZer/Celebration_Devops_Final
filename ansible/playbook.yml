@@ -226,11 +226,12 @@
 
     - name: Copy private SSH key to remote host
       copy:
-      src: /home/reut/.ssh/celebration_key_pair
-      dest: /home/ubuntu/.ssh/id_rsa
-      owner: ubuntu
-      group: ubuntu
-      mode: '0600'
+        src: /home/reut/.ssh/id_rsa
+        dest: /root/.ssh/id_rsa
+        owner: root
+        group: root
+        mode: '0600'
+
 
     - name: Clone the app repo
       git:
