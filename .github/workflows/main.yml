@@ -99,7 +99,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /home/ubuntu/celebration-devops
+            cd /home/ubuntu/celebration_devops_final
             sudo docker compose down || true
-            sudo docker pull gold1998/Celebration_Devops_Final:latest
+            sudo docker pull gold1998/celebration_devops_final:latest
             sudo docker compose up -d --build
